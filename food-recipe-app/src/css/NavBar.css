@@ -13,6 +13,10 @@ nav{
 .logo{
   margin: 0px 30px;
 }
+.logo-title{
+  font-family: monospace;
+  font-size: 2.5em;
+}
 .search-bar{
   width: 60vw;
   display: flex;

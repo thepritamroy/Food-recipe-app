@@ -1,0 +1,85 @@
+.food-box{
+  cursor: pointer;
+  justify-self: center;
+  height: auto;
+  text-align: center;
+  border-radius: 5px;
+  background: hsla(0, 3%, 87%, 0.907);
+  color: hsl(0, 0%, 0%);
+  font-family: monospace;
+  margin: 10px;
+  box-shadow: 2px 2px 5px hsl(0, 0%, 59%);
+  position: relative;
+
+
+  min-width: 350px; 
+  max-width: 400px;
+  aspect-ratio: 2/2;
+  overflow: hidden; 
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(0.95); 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.food-box:hover{
+  transform: scale(1); /* Zoom-out effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+.food-img img{
+  width:90%;
+  border-radius: 5px;
+  padding-top: 10px;
+}
+
+.food-category{
+  font-size: 1.4em;
+  margin-top: 20px;
+}
+
+.fav-button{
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.food-box:hover .fav-button{
+  opacity: 1; 
+  visibility: visible; 
+}
+
+.fa-heart{
+  color: white;
+  font-size: 1.3em;
+  text-shadow: 3px 3px 5px hsl(0, 0%, 0%);
+}
+
+.favorite-btn:hover{
+  transform: translateY(-5x);
+}
+
+.active .fa-heart{
+  color: red;
+}
+
+.direct-category-page{
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.food-box:hover .direct-category-page{
+  opacity: 1; 
+  visibility: visible; 
+}
