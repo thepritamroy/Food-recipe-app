@@ -1,5 +1,6 @@
 import { useEffect,useState, createContext , useCallback} from "react";
 import { handleFoodApi, handleSearchFoodApi } from "../services/api";
+import Ingredients from "../pages/Ingredients";
 
 export const FoodContext = createContext();
 
@@ -8,6 +9,7 @@ function FoodProvider({children}){
   const [foods, setFoods] = useState([]);
   const [categorys , setCategorys] = useState(JSON.parse(localStorage.getItem('category')) || [])
   const [favorites , setFavorites] = useState(JSON.parse(localStorage.getItem('favorite')) || []);
+  const [ingredientFood , setIngredientFood] = useState(JSON.parse(localStorage.getItem('ingredientFood')) || {})
   const [searchFood , setSearchFood] = useState('');
   const [error , setError] = useState(null);
   const [loading , setLoading] = useState(false);
@@ -19,6 +21,10 @@ function FoodProvider({children}){
   useEffect(()=>{
     localStorage.setItem('favorite' ,JSON.stringify(favorites))
   },[favorites])
+
+  useEffect(()=>{
+    localStorage.setItem('ingredientFood' ,JSON.stringify(ingredientFood))
+  },[ingredientFood])
 
 
 
@@ -39,18 +45,22 @@ function FoodProvider({children}){
   },[])
 
   
-  const loadSearchFoods = useCallback(async (searchFood) => {
+  const loadCatergoryFoods = useCallback(async (searchFood) => {
     try {
       console.log('Fetching food data...');
       setLoading(true);
       const foodData = await handleSearchFoodApi(searchFood);
       setCategorys(foodData);
     } catch (error) {
+      console.log(error)
       setError('Failed to fetch');
     } finally {
       setLoading(false);
     }
   }, []);
+
+
+  
 
     function handleAddToFav(food){
       setFavorites((f)=>[...f,food]) 
@@ -75,13 +85,12 @@ function FoodProvider({children}){
 
   const value = {
     foods , setFoods,
-    categorys , setCategorys,
-    favorites , setFavorites,
+    categorys , setCategorys, loadCatergoryFoods,
+    favorites , setFavorites, handleAddToFav, isFavorite, handleRemoveFromFav,
     searchFood , setSearchFood,
     error , setError,
     loading , setLoading,
-    loadSearchFoods,
-    handleAddToFav,isFavorite, handleRemoveFromFav
+    ingredientFood, setIngredientFood, 
   }
 
   return <FoodContext.Provider value={value}>

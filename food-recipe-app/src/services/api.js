@@ -28,7 +28,7 @@ export async function handleSearchFoodApi(foodName){
   
 }
 
-// handleSearchFood('chicken')
+// handleSearchFoodApi('chicken')
 
 
 

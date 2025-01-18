@@ -8,7 +8,7 @@ const FoodComponent = (props) => {
   
   const location = useLocation()
 
-  const {loadSearchFoods, handleAddToFav,isFavorite, handleRemoveFromFav} = useContext(FoodContext);
+  const {loadCatergoryFoods,setIngredientFood, handleAddToFav,isFavorite, handleRemoveFromFav} = useContext(FoodContext);
   const favorite = isFavorite(food.idMeal)
 
   function handleFav(){
@@ -20,28 +20,36 @@ const FoodComponent = (props) => {
   }
 
   return (
-  <Link to={`${location.pathname === '/' ? '/category' : '/ingredient'}`}>
-    <div className={`food-box ${location.pathname === '/' ? 'food-box-active' : ''}`} onClick={location.pathname === '/' ? ()=>loadSearchFoods(food.strCategory) : ()=>{}}>
-        <div className="food-img">          
-          <img src={food.strCategoryThumb || food.strMealThumb} alt="Image" />
-        </div>
-        <div className="food-category">
-          <h3>{location.pathname==='/' ? food.strCategory : food.strMeal}</h3>
-        </div>
-        <div className={`fav-button ${favorite ? 'active' : ''}`} 
-        onClick={handleFav}>
-          {location.pathname === '/category' || location.pathname === '/favorite' ?
-          <i className='fa-solid fa-heart'></i> : ''}
-        </div>
-        <div className="country">
-          <h3>{food.strArea}</h3>
-        </div>
-        <div className="direct-category-page">
-          
-          {location.pathname === '/' ? <i className="fa-solid fa-greater-than"></i> :<Link target='_blank' to={food.strYoutube}> <i className="fa-brands fa-youtube" style={{color: '#fa0000',fontSize:'2em'}}></i></Link>}
-        </div>
+    <div className={`food-box ${location.pathname === '/' ? 'food-box-active' : ''}`} >
+          <div className="food-img">
+            <Link to={`${location.pathname === '/' ? '/category' : '/ingredient'}`}>
+              <img src={food.strCategoryThumb || food.strMealThumb} 
+              alt="Image" 
+              onClick={location.pathname === '/' ? 
+                ()=>loadCatergoryFoods(food.strCategory) : 
+                ()=>setIngredientFood(food)}/>
+            </Link>
+          </div>
+          <div className="food-category">
+            <h3>{location.pathname==='/' ? food.strCategory : food.strMeal}</h3>
+          </div>
+          <div className={`fav-button ${favorite ? 'active' : ''}`} 
+          onClick={handleFav}>
+            {location.pathname === '/category' || location.pathname === '/favorite' ?
+            <i className='fa-solid fa-heart'></i> : ''}
+          </div>
+          <div className="country">
+            <h3>{food.strArea}</h3>
+          </div>
+          <div className="direct-category-page">
+            
+            {location.pathname === '/' ? 
+            <i className="fa-solid fa-greater-than"></i> :
+            <Link target='_blank' to={food.strYoutube}> 
+              <i className="fa-brands fa-youtube" style={{color: '#fa0000',fontSize:'2em'}}></i>
+            </Link>}
+          </div>
     </div>
-  </Link>
   )
 }
 
