@@ -1,24 +1,51 @@
+import { useContext } from 'react';
 import '../css/FoodComponent.css'
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
+import { FoodContext } from '../contexts/FoodContext';
 
 const FoodComponent = (props) => {
   const food = props.food;
+  
+  const location = useLocation()
+
+  const {loadSearchFoods, handleAddToFav,isFavorite, handleRemoveFromFav} = useContext(FoodContext);
+  const favorite = isFavorite(food.idMeal)
+
+  function handleFav(){
+    if(favorite){
+      handleRemoveFromFav(food.idMeal)
+    }else{
+      handleAddToFav(food)
+    }
+  }
+
   return (
-    <div className="food-box">
-          <div className="food-img">
-            <Link to='/category'><img src={food.strCategoryThumb} alt="Image" /></Link>
-          </div>
-          <div className="food-category">
-            <h3>{food.strCategory}</h3>
-          </div>
-          <div className="fav-button">
-            <Link to='/favorite'><i className='fa-solid fa-heart'></i></Link>
-          </div>
-          <div className="direct-category-page">
-          <Link to='/category'><i class="fa-solid fa-greater-than"></i></Link>
-          </div>
+  <Link to={`${location.pathname === '/' ? '/category' : '/ingredient'}`}>
+    <div className={`food-box ${location.pathname === '/' ? 'food-box-active' : ''}`} onClick={location.pathname === '/' ? ()=>loadSearchFoods(food.strCategory) : ()=>{}}>
+        <div className="food-img">          
+          <img src={food.strCategoryThumb || food.strMealThumb} alt="Image" />
+        </div>
+        <div className="food-category">
+          <h3>{location.pathname==='/' ? food.strCategory : food.strMeal}</h3>
+        </div>
+        <div className={`fav-button ${favorite ? 'active' : ''}`} 
+        onClick={handleFav}>
+          {location.pathname === '/category' || location.pathname === '/favorite' ?
+          <i className='fa-solid fa-heart'></i> : ''}
+        </div>
+        <div className="country">
+          <h3>{food.strArea}</h3>
+        </div>
+        <div className="direct-category-page">
+          
+          {location.pathname === '/' ? <i className="fa-solid fa-greater-than"></i> :<Link target='_blank' to={food.strYoutube}> <i className="fa-brands fa-youtube" style={{color: '#fa0000',fontSize:'2em'}}></i></Link>}
+        </div>
     </div>
+  </Link>
   )
 }
 
 export default FoodComponent
+
+// 
+//

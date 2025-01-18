@@ -4,6 +4,7 @@ import Category from './pages/Category'
 import FoodProvider from './contexts/FoodContext'
 import NavBar from './components/NavBar'
 import Favorite from './pages/Favorite'
+import Ingredients from './pages/Ingredients'
 
 function App() {
   
@@ -15,6 +16,7 @@ function App() {
       <Route path='/' element = {<Home/>}></Route>
       <Route path='/category' element = {<Category/>}></Route>
       <Route path='/favorite' element = {<Favorite/>}></Route>  
+      <Route path='/ingredient' element = {<Ingredients/>}></Route>  
     </Routes>
   </FoodProvider>
   )
