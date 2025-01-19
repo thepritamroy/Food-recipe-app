@@ -1,0 +1,41 @@
+.theme-change{
+  background: linear-gradient(to bottom right,rgb(1, 1, 105) ,black, grey);
+  background-repeat: no-repeat;
+  color: aliceblue;
+  min-height: 100vh;
+
+  nav{
+    background: hsl(0, 0%, 20%);
+    .search-bar input{
+      border: 1px solid white;
+      color: white;
+      outline-color: hsl(60, 100%, 40%);
+    }
+    .Search-button{
+      border: 1px solid white;
+      color: white;
+    }
+    .Search-button:hover{
+      background: hsl(0, 0%, 10%);
+    }
+    ::placeholder{
+      color: hsl(0, 0%, 70%);
+    }
+    .menu-bar a{
+      color: white;
+    }
+    .menu-bar .menu-active::before{      
+      background: #db0293;          
+    }
+  }
+  .ingredient{
+    box-shadow: 0px 0px 5px rgb(4, 134, 255);
+  }
+  .ingredient .measurement{
+    color: hsl(0, 0%, 80%);
+  }
+  .instruction-step{
+    background: #000;
+  }
+
+}

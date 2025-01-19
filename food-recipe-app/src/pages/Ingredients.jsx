@@ -4,7 +4,7 @@ import '../css/Ingredients.css'
 
 const Ingredients = () => {
 
-  const {ingredientFood} = useContext(FoodContext);
+  const {ingredientFood, handleAddToFav, handleRemoveFromFav, isFavorite} = useContext(FoodContext);
 
 
   const ingredients = [];
@@ -13,14 +13,23 @@ const Ingredients = () => {
     const key2 = `strMeasure${1+i}`
     ingredients.push({name: ingredientFood[key1] , measure:ingredientFood[key2] })
   }
+console.log(ingredientFood)
+  const favorite = isFavorite(ingredientFood.idMeal);
 
-
+  function handeFav(){
+    if(favorite){
+      handleRemoveFromFav(ingredientFood.idMeal)
+    }else{
+      handleAddToFav(ingredientFood)
+    }
+  }
 
   return (
     <div className="main-container widget-container">
       <div className="ingredient-upper-container">
         <div className="food-image">
           <img src={ingredientFood.strMealThumb} alt="image" />
+          <i className={`fa-solid fa-heart ${favorite ? 'active' : ''}`} onClick={handeFav}></i>
           <div className="food-name">
             <h1>{ingredientFood.strMeal}</h1>
           </div>

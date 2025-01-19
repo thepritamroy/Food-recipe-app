@@ -24,8 +24,8 @@ const FoodComponent = (props) => {
           <div className="food-img">
             <Link to={`${location.pathname === '/' ? '/category' : '/ingredient'}`}>
               <img src={food.strCategoryThumb || food.strMealThumb} 
-              alt="Image" 
-              onClick={location.pathname === '/' ? 
+                alt="Image" 
+                onClick={location.pathname === '/' ? 
                 ()=>loadCatergoryFoods(food.strCategory) : 
                 ()=>setIngredientFood(food)}/>
             </Link>
@@ -35,7 +35,7 @@ const FoodComponent = (props) => {
           </div>
           <div className={`fav-button ${favorite ? 'active' : ''}`} 
           onClick={handleFav}>
-            {location.pathname === '/category' || location.pathname === '/favorite' ?
+            {location.pathname !=='/' ?
             <i className='fa-solid fa-heart'></i> : ''}
           </div>
           <div className="country">
@@ -46,7 +46,7 @@ const FoodComponent = (props) => {
             {location.pathname === '/' ? 
             <i className="fa-solid fa-greater-than"></i> :
             <Link target='_blank' to={food.strYoutube}> 
-              <i className="fa-brands fa-youtube" style={{color: '#fa0000',fontSize:'2em'}}></i>
+              <i className="fa-brands fa-youtube" ></i>
             </Link>}
           </div>
     </div>

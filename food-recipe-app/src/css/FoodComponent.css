@@ -4,7 +4,7 @@
   height: auto;
   text-align: center;
   border-radius: 5px;
-  background: hsla(0, 3%, 87%, 0.907);
+  background: hsl(119.08deg 58.6% 90.87% / 90.7%);
   color: hsl(0, 0%, 0%);
   font-family: monospace;
   margin: 10px;
@@ -86,4 +86,15 @@
 .food-box:hover .direct-category-page{
   opacity: 1; 
   visibility: visible; 
+}
+
+.fa-youtube{
+  color: #fa0000;
+  font-size: 2.5em;
+  transform: scale(1);
+  transition: transform .3s ease;
+}
+
+.fa-youtube:hover{
+  transform: scale(1.3);
 }

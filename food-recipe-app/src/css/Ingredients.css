@@ -26,6 +26,7 @@
 .food-image{
   width: 400px;
   margin-top: 20px;
+  position: relative;
 }
 
 .food-image img{
@@ -34,6 +35,15 @@
   box-shadow: 0px 0px 5px grey;
 }
 
+.food-image .fa-heart{
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.active{
+  color: red !important;
+}
 .food-name{
   text-align: center;
   margin-top: 20px;
