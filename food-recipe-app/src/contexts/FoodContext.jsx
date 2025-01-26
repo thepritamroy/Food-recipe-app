@@ -11,7 +11,7 @@ function FoodProvider({children}){
   const [favorites , setFavorites] = useState(JSON.parse(localStorage.getItem('favorite')) || []);
   const [ingredientFood , setIngredientFood] = useState(JSON.parse(localStorage.getItem('ingredientFood')) || {})
   const [searchFood , setSearchFood] = useState([]);
-  const [searchList , setSearchList] = useState(JSON.parse(localStorage.getItem('searchList')) || [])
+  const [searchList , setSearchList] = useState(JSON.parse(localStorage.getItem('searchList')) || null)
   const [searchQuery , setSearchQuery] = useState();
   const [error , setError] = useState(null);
   const [loading , setLoading] = useState(false);

@@ -13,7 +13,7 @@ const Favorite = () => {
       {error ? 
       <div className="error">
         <div className="error-dog-img">
-          <img src="../src/assets/internet-error-dog.png" alt="error Image" />
+          <img src="../src/assets/internet-dog-error.png" alt="error Image" />
         </div>
         <div className="error-text">
           <h1>Oops!</h1>

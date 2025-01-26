@@ -1,5 +1,6 @@
+/*  background: linear-gradient(to bottom right,rgb(1, 1, 105) ,black, grey); */
 .theme-change{
-  background: linear-gradient(to bottom right,rgb(1, 1, 105) ,black, grey);
+  background: linear-gradient(to bottom right,rgb(1, 1, 88) ,black, rgb(0, 0, 82));
   background-repeat: no-repeat;
   color: aliceblue;
   min-height: 100vh;
@@ -37,5 +38,12 @@
   .instruction-step{
     background: #000;
   }
+  .search-bar input{
+    box-shadow: inset 0px 0px 5px white;
+  }
 
+  .food-box{
+    background: hsl(119.08deg 58.6% 90.87% / 90.7%);
+  }
+  
 }

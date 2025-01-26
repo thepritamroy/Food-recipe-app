@@ -12,10 +12,12 @@ nav{
 }
 .logo{
   margin: 0px 30px;
+  z-index: 1000;
 }
 .logo-title{
   font-family: monospace;
   font-size: 2.5em;
+
 }
 .search-bar{
   width: 60vw;
@@ -32,7 +34,9 @@ nav{
   border: 1px solid hsl(0, 0%, 0%);
   border-radius: 20px;
   outline-color: hsl(240, 100%, 45%) ;
+  box-shadow: inset 0px 0px 5px black;
 }
+
 ::placeholder{
   color: hsl(0, 0%, 20%);
 }
@@ -64,6 +68,7 @@ nav{
   margin: 0px 30px;
   display: flex;
   gap: 20px;
+  z-index: 100;
 }
 .menu-bar a{
    cursor: pointer;

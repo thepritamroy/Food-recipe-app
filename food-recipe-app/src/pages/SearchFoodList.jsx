@@ -19,7 +19,17 @@ const SearchFoodList = () => {
           {searchList.map((food) => (
             <FoodComponent key={food.idMeal} food={food} />
           ))}
-        </div> : (!loading ? <h1 className='no-match'> No matching food available...😒</h1> : '')}
+        </div> : (!loading && !error ? 
+            (<div className="data-unavailable">
+              <div className="no-match-dog-img">
+                <img src="../src/assets/no-match-dog.png" alt="dog image" />
+              </div>
+              <div className="no-match-text">
+                <h1>Oops!</h1>
+                <h3>The food is currently unavailable...😪</h3>
+              </div>
+              
+            </div>) : '')}
            
   
         
