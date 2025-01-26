@@ -99,3 +99,9 @@
 .fa-youtube:hover{
   transform: scale(1.3);
 }
+
+@media (max-width : 500px) {
+  .food-box{
+    min-width: auto;
+  }
+}

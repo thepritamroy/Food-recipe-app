@@ -16,3 +16,10 @@
 .fav-empty-des p{
   color: hsl(0, 0%, 30%);
 }
+
+@media (max-width:500px){
+  .fav-empty-des{
+    width: 300px;
+    padding: 20px;
+  }
+}
