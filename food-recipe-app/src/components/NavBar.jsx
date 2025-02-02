@@ -14,7 +14,7 @@ const NavBar = () => {
    <header>
     <nav>
       <div className="logo">
-        <h1 className='logo-title'>FoodRecipe</h1>
+        <Link to='/' style={{textDecoration:'none'}}><h1 className='logo-title'>FoodRecipe</h1></Link>
       </div>
       <div className="search-bar">
         <input type="text"
